@@ -1,3 +1,4 @@
+package com.weshare.sirius.weshare;
 import java.util.HashSet;
 import java.util.ArrayList;
 
@@ -21,13 +22,17 @@ public class Item {
     /** whether this item is available.*/
     private boolean _available;
 
-    /** Constructor for an ITEM, taking a TAG, VALUE and NOTES.*/
-    public Item(HashSet tag, int value, String notes) {
+    /** name of this item.*/
+    private String _name;
+
+    /** Constructor for an ITEM, taking a NAME, a TAG, a VALUE and some NOTES.*/
+    public Item(String name, HashSet tag, int value, String notes) {
         this._tag = tag;
         this._value = value;
         this._notes = notes;
         this._damaged = false;
-        this._available = false;
+        this._available = true;
+        this._name = name;
     }
 
     /** get the damage of this item.*/
@@ -53,6 +58,11 @@ public class Item {
     /** get the availability of this item.*/
     public boolean getAvailable() {
         return _available;
+    }
+
+    /** get the name of this item.*/
+    public String getName() {
+        return _name;
     }
 
     /** register that this item is damaged.*/

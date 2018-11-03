@@ -1,5 +1,6 @@
 package com.weshare.sirius.weshare;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -23,6 +24,15 @@ public class MainActivity extends AppCompatActivity {
                 TextView result = (TextView) findViewById(R.id.SignUpPageTestTextView);
 
                 result.setText("Congrats");
+            }
+        });
+
+        SignUpButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent StartIntent = new Intent(getApplicationContext(), SecondPage.class);
+                StartIntent.putExtra("com.weshare.sirius.weshare, testtest", "Hellow World!");
+                startActivity(StartIntent);
             }
         });
     }

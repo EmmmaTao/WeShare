@@ -50,6 +50,14 @@ public class Request{
     return obj;
   }
 
+  User getBorrower() {
+    return borrower;
+  }
+
+  String getItemName() {
+    return itemName;
+  }
+
   /** void toString(){
     String verb = "";
     if(status < 1){

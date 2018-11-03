@@ -21,8 +21,9 @@ public class MainActivity extends AppCompatActivity {
                 EditText SignUpPageUserNamePlainText = (EditText) findViewById(R.id.SignUpPageUserNamePlainText);
                 EditText SignUpPagePasswordPassword = (EditText) findViewById(R.id.SignUpPagePasswordPassword);
 
-                Intent StartIntent = new Intent(getApplicationContext(), WelcomePage.class);
-                StartIntent.putExtra("com.weshare.sirius.weshare, username", "Hello, " + SignUpPageUserNamePlainText.getText().toString() + "!");
+                Intent StartIntent = new Intent(getApplicationContext(), SignUpPage.class);
+                StartIntent.putExtra("com.weshare.sirius.weshare, username", SignUpPageUserNamePlainText.getText().toString());
+                StartIntent.putExtra("com.weshare.sirius.weshare, userpassword", SignUpPagePasswordPassword.getText().toString());
                 startActivity(StartIntent);
             }
         });

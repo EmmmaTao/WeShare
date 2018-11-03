@@ -12,6 +12,7 @@ public class User {
 	public String account;
 	public String username;
 	//map api return what kind of location data?
+	public static ArrayList<User> allusers = new ArrayList<User>();
 
 	public User(HashSet<String> initialTags, String name, String acct) {
 		tags = initialTags;
@@ -19,6 +20,7 @@ public class User {
 		possessions = new HashSet<Item>();
 		account = acct;
 		credit = 0;
+		allusers.add(this);
 	}
 	public void postRequest() {
 		//pop window, get tags, create a HashSet of tags and so on

@@ -41,7 +41,8 @@
             android:label="@string/title_activity_maps" />
         <activity android:name=".WelcomePage" />
         <activity android:name=".RequestItemList" />
-        <activity android:name=".PostRequest"></activity>
+        <activity android:name=".PostRequest" />
+        <activity android:name=".SignUpPage"></activity>
     </application>
 
 </manifest>

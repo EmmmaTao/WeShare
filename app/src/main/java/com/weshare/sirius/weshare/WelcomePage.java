@@ -17,7 +17,7 @@ public class WelcomePage extends AppCompatActivity {
 
         if (getIntent().hasExtra("com.weshare.sirius.weshare, username")) {
             TextView TestTextView = (TextView) findViewById(R.id.SecondPageTextView);
-            String text = getIntent().getExtras().getString("com.weshare.sirius.weshare, username");
+            String text = getIntent().getExtras().getString("com.weshare.sirius.weshare, welcomeusername");
             TestTextView.setText(text);
         }
 
@@ -27,6 +27,15 @@ public class WelcomePage extends AppCompatActivity {
             public void onClick(View v) {
                 Intent StartIntent = new Intent(getApplicationContext(), MapsActivity.class);
                 startActivity(StartIntent);
+            }
+        });
+
+        Button PostRequestButton = (Button) findViewById(R.id.PostRequestButton);
+        PostRequestButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent PostIntent = new Intent(getApplicationContext(), PostRequest.class);
+                startActivity(PostIntent);
             }
         });
     }

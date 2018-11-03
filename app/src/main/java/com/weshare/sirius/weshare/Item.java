@@ -25,6 +25,9 @@ public class Item {
     /** name of this item.*/
     private String _name;
 
+    /** alltags of all users.*/
+    public static final String[] alltags = {"Electronics", "Stationeries", "Textbooks"};
+
     /** Constructor for an ITEM, taking a NAME, a TAG, a VALUE and some NOTES.*/
     public Item(String name, HashSet tag, int value, String notes) {
         this._tag = tag;

@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="eb49155b-e4d1-4c1d-bcba-42c5309a79bc" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../../../../../AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../res/values/strings.xml" afterDir="false" />
-    </list>
+    <list default="true" id="eb49155b-e4d1-4c1d-bcba-42c5309a79bc" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

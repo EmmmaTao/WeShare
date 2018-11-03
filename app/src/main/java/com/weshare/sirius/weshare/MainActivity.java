@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -21,17 +20,9 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 EditText SignUpPageUserNamePlainText = (EditText) findViewById(R.id.SignUpPageUserNamePlainText);
                 EditText SignUpPagePasswordPassword = (EditText) findViewById(R.id.SignUpPagePasswordPassword);
-                TextView result = (TextView) findViewById(R.id.SignUpPageTestTextView);
 
-                result.setText("Congrats");
-            }
-        });
-
-        SignUpButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent StartIntent = new Intent(getApplicationContext(), SecondPage.class);
-                StartIntent.putExtra("com.weshare.sirius.weshare, testtest", "Hellow World!");
+                Intent StartIntent = new Intent(getApplicationContext(), WelcomePage.class);
+                StartIntent.putExtra("com.weshare.sirius.weshare, username", "Hello, " + SignUpPageUserNamePlainText.getText().toString() + "!");
                 startActivity(StartIntent);
             }
         });

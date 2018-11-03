@@ -23,6 +23,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+<<<<<<< HEAD
         <activity android:name=".SecondPage" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
@@ -39,6 +40,10 @@
         <activity
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps"></activity>
+=======
+        <activity android:name=".WelcomePage" />
+        <activity android:name=".RequestItemList" />
+>>>>>>> cd7c208c15741a517ce118bd34569b662e6642c1
     </application>
 
 </manifest>

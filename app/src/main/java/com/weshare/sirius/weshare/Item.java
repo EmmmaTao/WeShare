@@ -1,9 +1,10 @@
-
+import java.util.HashSet;
+import java.util.ArrayList;
 
 public class Item {
 
     /** tag of this item.*/
-    private Hashset _tag;
+    private HashSet _tag;
 
     /** value of this item.*/
     private int _value;
@@ -21,8 +22,8 @@ public class Item {
     private boolean _available;
 
     /** Constructor for an ITEM, taking a TAG, VALUE and NOTES.*/
-    public Item(Hashset tag, int value, String notes) {
-        this.tag = tag;
+    public Item(HashSet tag, int value, String notes) {
+        this._tag = tag;
         this._value = value;
         this._notes = notes;
         this._damaged = false;
@@ -35,7 +36,7 @@ public class Item {
     }
 
     /** get the tag of this item.*/
-    public Hashset getTag() {
+    public HashSet getTag() {
         return _tag;
     }
 
@@ -61,7 +62,7 @@ public class Item {
 
     /** change the availability of this item.*/
     public void setAvailable() {
-        if (getAvailable) {
+        if (getAvailable()) {
             _available = false;
         } else {
             _available = true;

@@ -22,16 +22,21 @@ public class User {
 	}
 	public void postRequest() {
 		//pop window, get tags, create a HashSet of tags and so on
-  		HashSet<String> tags;
-  		String itemName;
-  		Location location;
+  		HashSet<String> tags = null;
+  		String itemName = "";
+  		//Location location;
   		String otherInfo;
-  		Request r = new Request(this, tags, itemName, location, otherInfo);
-  		sendNotification(User[] nearby);
+  		Request r = new Request(this, tags, itemName);
+  		//fetch nearby users in nearby[]
+        User[] nearby = new User[3];
+  		sendNotification(nearby);
   		//post this request 
   		//only post to nearby people
 	}
 
+	public void sendNotification(User[] near) {
+
+    }
 	//called when user decides to accept a request
 	public void acceptRequest(Request r) {
 		//change item to unavailable
@@ -41,26 +46,33 @@ public class User {
 				match.add(i);
 			}
 		}
-		// ask user to a)select from matches, 
-		// b)create new possession, c) select from all possessions
-		if (a) {
+		// ask user to 1)select from matches,
+		// 2)create new possession, 3) select from all possessions
+        int options = 1;
+		if (options == 1) {
 			//show matches, prompt user to select item _i
+            Item i = new Item("",null,0,"");
 			r.setItem(i);
-			i.setAvailable(false);
+			i.setAvailable();
 		}
-		else if (b) {
+		else if (options == 2) {
 			//prompt user for _tag, _value, _other
+            HashSet<String> tag = null;
+            int value = 0;
+            String other = "";
 			Item it = createItem(r.getItemName(), tag, value, other);
 			r.setItem(it);
-			i.setAvailable(false);
+			it.setAvailable();
 		}
 		else {
 			//show all possessions, prompt user to select item _i
+            Item i = new Item("",null,0,"");
 			r.setItem(i);
-			i.setAvailable(false);
+			i.setAvailable();
 		}
 
 		//await borrower's confirmation
+        boolean confirmed = false;
 		if (confirmed) {
 			r.getBorrower().holdDeposit(r.getItem().getValue() / 10);
 		}
@@ -76,7 +88,9 @@ public class User {
 
 	public void completeRequest(Request r) {
 		Item i = r.getItem();
-		if (mouseclick on something) {
+		//prompt user to comfirm completion in mouseclick
+		boolean mouseclick = false;
+		if (mouseclick) {
 			possessions.remove(i);
 			i.damaged();	
 			//deduct money from borrower + report to support
@@ -90,9 +104,10 @@ public class User {
 		}
 	}
 
-	public void createItem(String n, HashSet<String> tag, int value, String other) {
+	public Item createItem(String n, HashSet<String> tag, int value, String other) {
 		Item requested = new Item(n, tag, value, other);
 		possessions.add(requested);
+		return requested;
 	}
 
 	public void addTag(String t) {

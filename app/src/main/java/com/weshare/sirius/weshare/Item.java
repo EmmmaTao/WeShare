@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Item {
 
     /** tag of this item.*/
-    private HashSet _tag;
+    private HashSet<String> _tag;
 
     /** value of this item.*/
     private int _value;
@@ -29,7 +29,7 @@ public class Item {
     public static final String[] alltags = {"Electronics", "Stationeries", "Textbooks"};
 
     /** Constructor for an ITEM, taking a NAME, a TAG, a VALUE and some NOTES.*/
-    public Item(String name, HashSet tag, int value, String notes) {
+    public Item(String name, HashSet<String> tag, int value, String notes) {
         this._tag = tag;
         this._value = value;
         this._notes = notes;
@@ -44,7 +44,7 @@ public class Item {
     }
 
     /** get the tag of this item.*/
-    public HashSet getTag() {
+    public HashSet<String> getTag() {
         return _tag;
     }
 

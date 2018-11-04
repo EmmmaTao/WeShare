@@ -5,7 +5,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 
 public class WelcomePage extends AppCompatActivity {
@@ -36,6 +35,15 @@ public class WelcomePage extends AppCompatActivity {
             public void onClick(View v) {
                 Intent PostIntent = new Intent(getApplicationContext(), PostRequest.class);
                 startActivity(PostIntent);
+            }
+        });
+
+        Button ViewAllRequestButton = (Button) findViewById(R.id.ViewAllRequestButton);
+        ViewAllRequestButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent ViewAllRequest = new Intent(getApplicationContext(), DetailRequest.class);
+                startActivity(ViewAllRequest);
             }
         });
     }

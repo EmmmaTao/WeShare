@@ -1,5 +1,7 @@
 package com.weshare.sirius.weshare;
 
+import android.graphics.Color;
+import android.graphics.drawable.GradientDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -19,6 +21,12 @@ public class PostRequest extends AppCompatActivity {
 
 
         final Spinner PostRequestTagsSpinner = (Spinner) findViewById(R.id.PostRequestTagsSpinner);
+
+        EditText  PostRequestOtherInfoEditText = (EditText) findViewById(R.id.PostRequestOtherInfoEditText);
+        GradientDrawable gd = new GradientDrawable();
+        gd.setColor(Color.parseColor("#00ffffff"));
+        gd.setStroke(2,Color.BLACK);
+        PostRequestOtherInfoEditText.setBackground(gd);
 
         ArrayAdapter<String> PostRequestAdapter = new ArrayAdapter<String>(PostRequest.this,
                 android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.PostTags));

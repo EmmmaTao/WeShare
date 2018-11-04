@@ -61,7 +61,7 @@
         android:layout_marginBottom="8dp"
         android:ems="10"
         android:gravity="top"
-        android:hint="Enter other information"
+        android:hint=" Enter other information"
         android:inputType="textMultiLine"
         android:lines="5"
         android:textSize="14sp"

@@ -42,7 +42,8 @@
         <activity android:name=".WelcomePage" />
         <activity android:name=".RequestedItem" />
         <activity android:name=".PostRequest" />
-        <activity android:name=".SignUpPage"></activity>
+        <activity android:name=".SignUpPage" />
+        <activity android:name=".DetailRequest"></activity>
     </application>
 
 </manifest>

@@ -16,6 +16,6 @@ public class FinishandChatT extends AppCompatActivity {
         String providername = getIntent().getExtras().getString("com.weshare.borrower.providername");
         tv.setText("Your share with " + providername + "is all set!");
         Button chat= (Button) findViewById(R.id.buttonchat2);
-        chat.setText("Chat with "+ providername);
+        chat.setText("Chat with User "+ providername);
     }
 }

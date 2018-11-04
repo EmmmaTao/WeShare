@@ -14,6 +14,21 @@ public class User {
 	//map api return what kind of location data?
 	public static ArrayList<User> allusers = new ArrayList<User>();
 
+	public static void initdummyusers() {
+		HashSet<String> dummytags = new HashSet<String>();
+		dummytags.add("Electronics");
+		User user1 = new User(dummytags, "user1", "12345");
+		User user2 = new User(dummytags, "user2", "23451");
+		User user3 = new User(dummytags, "user3", "34512");
+		User user4 = new User(dummytags, "user4", "45123");
+		User user5 = new User(dummytags, "user5", "51234");
+		allusers.add(user1);
+		allusers.add(user2);
+		allusers.add(user3);
+		allusers.add(user4);
+		allusers.add(user5);
+	}
+
 	public User(HashSet<String> initialTags, String name, String acct) {
 		tags = initialTags;
 		username = name;

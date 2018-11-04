@@ -17,17 +17,18 @@ public class DetailRequest extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_request);
 
-        final int testint = 5;
+        String text = getIntent().getExtras().getString("com.weshare.request.tagnumber");
+        final int userint = Integer.parseInt(text);
         Button DetailRequestBack = (Button) findViewById(R.id.DetailRequestGoBackButtion);
         Button DetailAccept = (Button) findViewById(R.id.DetailRequestAcceptButton);
 
-        String BorrowerName = Request.allRequests.get(testint).getBorrower().getName();
+        String BorrowerName = Request.allRequests.get(userint).getBorrower().getName();
         TextView DetailRequestBorrowerTextView = (TextView) findViewById(R.id.DetailRequestBorrowerNameTextView);
         String Name = BorrowerName;
         TextView DetailRequestTagTextView = (TextView) findViewById(R.id.DetailrequestTagTextView);
         TextView DetailRequestItemNameTextView = (TextView) findViewById(R.id.DetailRequestItemNameTextView);
         //String Tag = Request.allRequests.get(testint).getTags();
-        final String Requested = Request.allRequests.get(testint).getItemName();;
+        final String Requested = Request.allRequests.get(userint).getItemName();;
 
         DetailRequestBorrowerTextView.setText("Name of the borrower: " + Name);
         //DetailRequestTagTextView.setText("Tag of the item requested: " + Tag);

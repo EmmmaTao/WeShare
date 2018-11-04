@@ -1,5 +1,6 @@
 package com.weshare.sirius.weshare;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.support.v7.app.AppCompatActivity;
@@ -8,6 +9,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import java.util.HashSet;
 
 public class RequestedItem extends AppCompatActivity {
 
@@ -23,14 +26,30 @@ public class RequestedItem extends AppCompatActivity {
         RequestedItemAdditionalEditText.setBackground(gd);
 
         TextView RequestedItemNameTextView = (TextView) findViewById(R.id.RequestedItemNameTextView);
-        String ItemName = getIntent().getExtras().getString("com.weshare.sirius.weshare, requestedname");
+        final String ItemName = getIntent().getExtras().getString("com.weshare.sirius.weshare, requestedname");
         RequestedItemNameTextView.setText("The name of this item:" + ItemName);
 
         Button RequestedItemSaveButton= (Button) findViewById(R.id.RequestedItemSaveButton);
+
+
         RequestedItemSaveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                
+
+                //String SelectedTag = TTTTTTTTTAAAAAAAAAGGGGGGGGGG;
+                HashSet<String> TagItem = new HashSet<String>();
+                //TagItem.add(SelectedTag);
+
+                TextView RequestedItemValueEditText = (TextView) findViewById(R.id.RequestedItemValueEditText);
+                String ValueItemString = RequestedItemValueEditText.getText().toString();
+                int ValueItem =Integer.parseInt(ValueItemString);
+                TextView RequestedItemAdditionalEditText = (TextView) findViewById(R.id.RequestedItemAdditionalEditText);
+                String Notes = RequestedItemAdditionalEditText.getText().toString();
+
+                Item newitem = new Item(ItemName, TagItem, ValueItem, Notes);
+
+                Intent FinishAcceptRequest = new Intent(getApplicationContext(), FinishAcceptRequest.class);
+                startActivity(FinishAcceptRequest);
             }
         });
 

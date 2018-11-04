@@ -4,11 +4,14 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.webkit.WebView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+
+import java.util.HashSet;
 
 public class SignUpPage extends AppCompatActivity {
 
@@ -22,7 +25,7 @@ public class SignUpPage extends AppCompatActivity {
         UserName.setText("User name:" + text);
 
 
-        Spinner SignUpPageTagsSpinner = (Spinner) findViewById(R.id.SignUpPageTagsSpinner);
+        final Spinner SignUpPageTagsSpinner = (Spinner) findViewById(R.id.SignUpPageTagsSpinner);
 
         ArrayAdapter<String> SignUpAdapter = new ArrayAdapter<String>(SignUpPage.this,
                 android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.PostTags));
@@ -39,6 +42,17 @@ public class SignUpPage extends AppCompatActivity {
                 StartIntent.putExtra("com.weshare.sirius.weshare, welcomeusername", "Hello, " + username + "!");
                 StartIntent.putExtra("com.weshare.sirius.weshare, username", username);
 
+                EditText PayPalAcount = (EditText) findViewById(R.id.SignUpPagePayPalEditText);
+                String UserPayPal = PayPalAcount.getText().toString();
+
+                String UserTag = SignUpPageTagsSpinner.getSelectedItem().toString();
+                HashSet<String> initialTags = new HashSet<String>();
+                initialTags.add(UserTag);
+
+                User CurrentUser = new User(initialTags, username, UserPayPal);
+                int index = User.allusers.indexOf(CurrentUser);
+
+                StartIntent.putExtra("com.weshare.sirius.weshare, newuser", index);
                 startActivity(StartIntent);
 
             }

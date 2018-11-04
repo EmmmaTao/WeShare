@@ -17,19 +17,25 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.location.LocationListener;
 
 import android.location.Location;
 import android.widget.Toast;
+import android.content.Intent;
 
+import java.util.ArrayList;
 
-public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, LocationListener, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener {
+public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, LocationListener, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, GoogleMap.OnMarkerClickListener {
 
     private GoogleMap mMap;
     LocationRequest request;
     GoogleApiClient client;
+    private ArrayList<Marker> reqs;
+
 
 
     @Override
@@ -89,20 +95,56 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         else {
             LatLng latLngCurrent = new LatLng(location.getLatitude(), location.getLongitude());
 
+            mMap.addMarker(new MarkerOptions().position(latLngCurrent).title("current location"));
+
             CameraUpdate update = CameraUpdateFactory.newLatLngZoom(latLngCurrent, 15);
             mMap.animateCamera(update);
 
-            MarkerOptions options = new MarkerOptions();
-            options.position((latLngCurrent));
-            options.title("current location");
-            mMap.addMarker(options);
-            //current location is = lat 37.871289, long -122.261547 (vlsb)
-            //another current location is = lat 37.873465, long -122.257780 (evans)
+            //current location is = 37.872536, -122.260868 (moffitt)
+            //another current location is = 37.869843, -122.258810 (sproul)
+
+            // lat 37.873465, long -122.257780 (evans)
+            Request.initializeAllRequest();
+            reqs = new ArrayList<>();
+//            LatLng moffitt = new LatLng(37.872536, -122.260868);
+//            mMap.addMarker(new MarkerOptions().position(moffitt).title("moffitt"));
+//            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(moffitt, 15));
+
+            mMap.setOnMarkerClickListener(this);
+
+            for (Request r : Request.allRequests) {
+                double lat = r.location.getLatitude();
+                double lon = r.location.getLongitude();
+                //if (Math.pow(Math.pow(lat,2) + Math.pow(lon, 2),0.5) < 0.004) {
+                LatLng near = new LatLng(lat, lon);
+                Marker m = mMap.addMarker(new MarkerOptions().position(near).title("Item name: " + r.itemName + ", tags: " + r.tags)
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE)));
+                reqs.add(m);
+                m.setTag(reqs.indexOf(m));
+                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(near, 15));
+                mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(near, 15));
+                //}
+            }
+
+
 
 
         }
 
     }
+
+    @Override
+    public boolean onMarkerClick(Marker marker) {
+        int index = (int) marker.getTag();
+
+        Intent startIntent = new Intent(getApplicationContext(), DetailRequest.class);
+        startIntent.putExtra("com.weshare.request.tagnumber", index);
+        startActivity(startIntent);
+
+
+        return false;
+    }
+
 
     @Override
     public void onConnected(@Nullable Bundle bundle) {
@@ -131,6 +173,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
 
     }
+
 
 
 }

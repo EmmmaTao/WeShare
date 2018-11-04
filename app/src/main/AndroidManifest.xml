@@ -44,7 +44,11 @@
         <activity android:name=".PostRequest" />
         <activity android:name=".SignUpPage" />
         <activity android:name=".DetailRequest" />
-        <activity android:name=".FinishAcceptRequest"></activity>
+        <activity android:name=".FinishAcceptRequest" />
+        <activity android:name=".NTTest" />
+        <activity android:name=".ReceiveHelpT" />
+        <activity android:name=".MoneyPageT" />
+        <activity android:name=".FinishandChatT"></activity>
     </application>
 
 </manifest>

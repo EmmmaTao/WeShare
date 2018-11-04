@@ -1,7 +1,9 @@
 package com.weshare.sirius.weshare;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.TextView;
 
 //import com.paypal.api.payments.Amount;
 //import com.paypal.api.payments.Payer;
@@ -25,5 +27,20 @@ public class MoneyPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_money_page);
 
+        String providername= "";
+        String provideditem = "";
+
+        if(getIntent().hasExtra("com.weshare.borrower.provider.name")){
+            TextView tv = (TextView) findViewById(R.id.textView);
+            TextView tv3 = (TextView) findViewById(R.id.textView3);
+            providername = getIntent().getExtras().getString("com.weshare.borrower.provider.name");
+            provideditem = getIntent().getExtras().getString("com.weshare.borrower.willreceive.item");
+            tv.setText(providername + " will lend you the "+ provideditem);
+            tv3.setText("Click to have $5 on hold and proceed borrowing!");
+        }
+
+
+        Intent startIntent = new Intent(getApplicationContext(), FinishandChat.class);
+        startIntent.putExtra("com.weshare.borrower.providername",providername);
     }
 }

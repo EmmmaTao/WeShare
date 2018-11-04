@@ -17,8 +17,8 @@ public class DetailRequest extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_request);
 
-        String text = getIntent().getExtras().getString("com.weshare.request.tagnumber");
-        final int userint = Integer.parseInt(text);
+        //int userint = getIntent().getExtras().getInt("com.weshare.request.tagnumber");
+        final int userint = 5;
         Button DetailRequestBack = (Button) findViewById(R.id.DetailRequestGoBackButtion);
         Button DetailAccept = (Button) findViewById(R.id.DetailRequestAcceptButton);
 

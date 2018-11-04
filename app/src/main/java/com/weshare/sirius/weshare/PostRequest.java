@@ -1,5 +1,6 @@
 package com.weshare.sirius.weshare;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.support.v7.app.AppCompatActivity;
@@ -44,9 +45,12 @@ public class PostRequest extends AppCompatActivity {
                 EditText PostRequestItemNameEditText = (EditText) findViewById(R.id.PostRequestItemNameEditText);
                 String ItemName = PostRequestItemNameEditText.getText().toString();
                 int index = User.allusers.size() - 1;
+
                 Request newrequest = new Request(User.allusers.get(index), TagRequest, ItemName);
-
-
+                Intent startIntent = new Intent(getApplicationContext(), NTTest.class);
+//                startIntent.putExtra("com.weshare.provider.name", User.allusers.get(index).getName());
+//                startIntent.putExtra("com.weshare.provider.itemName", ItemName);
+                startActivity(startIntent);
 
             }
         });

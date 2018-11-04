@@ -1,4 +1,5 @@
 package com.weshare.sirius.weshare;
+//code adapted from https://www.youtube.com/watch?v=rpR98-jk1io
 
 import android.Manifest;
 import android.content.pm.PackageManager;

@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         User.initdummyusers();
+        Request.initializeAllRequest();
         Button SignUpButton = (Button) findViewById(R.id.SignUpButton);
         SignUpButton.setOnClickListener(new View.OnClickListener() {
             @Override
